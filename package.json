@@ -25,6 +25,7 @@
     "cz-conventional-changelog": "catalog:",
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-react": "catalog:",
     "globals": "catalog:",

@@ -1,7 +1,7 @@
 import type { Configuration } from "lint-staged";
 
 const config: Configuration = {
-  "*.{js,jsx,ts,tsx,json,css,html,yaml,yml}": [
+  "*.{js,jsx,ts,tsx,json,css,html,yaml,yml}": () => [
     "pnpm run format",
     "pnpm run lint",
   ],
