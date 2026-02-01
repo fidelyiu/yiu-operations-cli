@@ -10,13 +10,10 @@ import (
 // uiCmd 代表 ui 命令
 var uiCmd = &cobra.Command{
 	Use:   "ui",
-	Short: "命令的简要描述",
-	Long: `更长的描述，可以跨越多行，通常包含命令的
-示例和用法。例如：
-
-Cobra 是一个为 Go 应用程序赋能的 CLI 库。
-此应用程序是一个用于生成所需文件的工具，
-可以快速创建 Cobra 应用程序。`,
+	Short: "启动基于 Web 的用户界面",
+	Long: `yiu-operations 提供了一个基于 Web 的用户界面，允许用户通过浏览器管理和监控系统运维任务。
+该界面直观且易于使用，提供了丰富的功能，帮助用户更高效地完成运维工作。
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		port := viper.GetInt("ui.port")
 		fmt.Printf("在端口 %d 上启动服务器\\n", port)

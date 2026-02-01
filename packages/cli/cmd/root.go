@@ -4,16 +4,31 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"io"
+	"log/slog"
 	"os"
 	"os/signal"
 	"strings"
 	"syscall"
+	"time"
 
+	"github.com/lmittmann/tint"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
-var cfgFile string
+const (
+	EnvPrefix  = "YIU_OPERATIONS"
+	ConfigName = ".yiu-operations"
+)
+
+var (
+	cfgFile   string
+	logLevel  string
+	logFormat string
+	logFile   string
+	logColor  bool
+)
 
 var rootCmd = &cobra.Command{
 	Use:   "yiu-operations",
@@ -74,15 +89,22 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "配置文件(默认是 $HOME/.yiu-operations.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", fmt.Sprintf("配置文件(默认是 $HOME/%s.yaml)", ConfigName))
+	rootCmd.PersistentFlags().StringVar(&logLevel, "log-level", "info", "日志级别 (debug|info|warn|error)")
+	rootCmd.PersistentFlags().StringVar(&logFormat, "log-format", "text", "日志格式 (text|json)")
+	rootCmd.PersistentFlags().StringVar(&logFile, "log-file", "", "日志文件路径 (默认输出到标准输出)")
+	rootCmd.PersistentFlags().BoolVar(&logColor, "log-color", true, "启用彩色日志输出 (仅对 text 格式有效)")
 }
 
 func initializeConfig(cmd *cobra.Command) error {
 	// 1. 设置 Viper 使用环境变量。
-	viper.SetEnvPrefix("MYAPP")
-	// 允许在环境变量中使用嵌套键（例如 `MYAPP_DATABASE_HOST`）
-	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "*", "-", "*"))
+	viper.SetEnvPrefix(EnvPrefix)
+	// 允许在环境变量中使用嵌套键（例如 `YIU_OPERATIONS_DATABASE_HOST`）
+	// 配置键 database.host → 环境变量 YIU_OPERATIONS_DATABASE_HOST
+	// 配置键 api-key → 环境变量 YIU_OPERATIONS_API_KEY
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_", "-", "_"))
 	viper.AutomaticEnv()
+
 	// 2. 处理配置文件。
 	if cfgFile != "" {
 		// 使用标志指定的配置文件。
@@ -95,7 +117,7 @@ func initializeConfig(cmd *cobra.Command) error {
 
 		// 搜索名为 "config" 的配置文件（不带扩展名）。
 		viper.AddConfigPath(".")
-		viper.AddConfigPath(home + "/.yiu-operations")
+		viper.AddConfigPath(home + "/" + ConfigName)
 		viper.SetConfigName("config")
 		viper.SetConfigType("yaml")
 	}
@@ -119,7 +141,77 @@ func initializeConfig(cmd *cobra.Command) error {
 		return err
 	}
 
-	// 这是一个可选但有用的步骤，用于调试你的配置。
-	fmt.Println("配置已初始化。使用的配置文件：", viper.ConfigFileUsed())
+	// 5. 初始化 slog。
+	if err := initLogger(); err != nil {
+		return fmt.Errorf("初始化日志失败: %w", err)
+	}
+
+	// 这是一个可选但有用的步骤,用于调试你的配置。
+	slog.Info("配置已初始化", "config_file", viper.ConfigFileUsed())
 	return nil
+}
+
+// initLogger 初始化全局 slog 日志记录器
+func initLogger() error {
+	// 获取日志级别
+	level := parseLogLevel(viper.GetString("log-level"))
+
+	// 获取日志输出目标
+	var writer io.Writer = os.Stdout
+	logFilePath := viper.GetString("log-file")
+	isFile := logFilePath != ""
+
+	if isFile {
+		file, err := os.OpenFile(logFilePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+		if err != nil {
+			return fmt.Errorf("无法打开日志文件 %s: %w", logFilePath, err)
+		}
+		writer = file
+		// 注意：这里不关闭文件，因为它将在整个程序生命周期中使用
+	}
+
+	// 创建处理器选项
+	opts := &slog.HandlerOptions{
+		Level: level,
+	}
+
+	// 根据格式创建处理器
+	var handler slog.Handler
+	logFormatValue := viper.GetString("log-format")
+	if logFormatValue == "json" {
+		handler = slog.NewJSONHandler(writer, opts)
+	} else {
+		// 对于 text 格式，检查是否启用颜色
+		// 输出到文件时自动禁用颜色
+		useColor := viper.GetBool("log-color") && !isFile
+		if useColor {
+			handler = tint.NewHandler(writer, &tint.Options{
+				Level:      level,
+				TimeFormat: time.DateTime,
+			})
+		} else {
+			handler = slog.NewTextHandler(writer, opts)
+		}
+	}
+
+	// 设置全局默认日志记录器
+	slog.SetDefault(slog.New(handler))
+
+	return nil
+}
+
+// parseLogLevel 解析日志级别字符串
+func parseLogLevel(level string) slog.Level {
+	switch strings.ToLower(level) {
+	case "debug":
+		return slog.LevelDebug
+	case "info":
+		return slog.LevelInfo
+	case "warn", "warning":
+		return slog.LevelWarn
+	case "error":
+		return slog.LevelError
+	default:
+		return slog.LevelInfo
+	}
 }
