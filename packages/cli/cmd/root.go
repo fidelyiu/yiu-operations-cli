@@ -1,10 +1,13 @@
 package cmd
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"os"
+	"os/signal"
 	"strings"
+	"syscall"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -31,8 +34,41 @@ var rootCmd = &cobra.Command{
 // Execute 将所有子命令添加到根命令并适当地设置标志。
 // 这由 main.main() 调用。它只需要对 rootCmd 执行一次。
 func Execute() {
-	err := rootCmd.Execute()
-	if err != nil {
+	ctx, cancel := context.WithCancel(context.Background())
+	// trap Ctrl+C and call cancel on the context
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
+	defer func() {
+		signal.Stop(c)
+		cancel()
+	}()
+	go func() {
+		select {
+		case <-c:
+			// 1. 当用户按下 Ctrl+C 时，会调用 cancel() 来取消上下文。
+			cancel()
+		case <-ctx.Done():
+		}
+	}()
+
+	// 2. 将上下文传递给 rootCmd.ExecuteContext，以便在命令执行期间可以响应取消信号。
+	if err := rootCmd.ExecuteContext(ctx); err != nil {
+		/*
+			3. 在执行长时间运行的任务时，命令的实现应定期检查上下文的状态。
+			例如：
+			func (s *StackService) RunStack() error {
+			    for i := 0; i < 1000000; i++ {
+			        select {
+			        case <-s.ctx.Done():
+			            slog.Info("收到取消信号，正在清理...")
+			            s.cleanup()
+			            return s.ctx.Err()  // 提前返回
+			        default:
+			            doWork(i)
+			        }
+			    }
+			}
+		*/
 		os.Exit(1)
 	}
 }
