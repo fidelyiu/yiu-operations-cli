@@ -5,3 +5,11 @@
 ```sh
 pnpx codemod pnpm/catalog
 ```
+
+## 终端
+
+- [starship](https://starship.rs/)
+
+```sh
+vim ~/.config/starship.toml
+```
