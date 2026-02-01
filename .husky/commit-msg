@@ -1,0 +1,4 @@
+echo "commitlint check start"
+# npx --no -- commitlint --edit "$1"
+pnpm exec commitlint --edit "$1"
+echo "commitlint check end"
