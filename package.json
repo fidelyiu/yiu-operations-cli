@@ -7,9 +7,12 @@
   "devDependencies": {
     "@eslint/js": "catalog:",
     "eslint": "catalog:",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "catalog:",
     "globals": "catalog:",
     "jiti": "catalog:",
+    "prettier": "3.8.1",
     "typescript-eslint": "catalog:"
   }
 }
