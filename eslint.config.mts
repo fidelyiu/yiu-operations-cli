@@ -8,7 +8,7 @@ import importPulgin from "eslint-plugin-import";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 export default defineConfig([
-  globalIgnores(["**/.docusaurus/"]),
+  globalIgnores(["**/.docusaurus/", "**/build/"]),
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     plugins: { js },
