@@ -4,27 +4,48 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@eslint/js':
+      specifier: ^9.39.2
+      version: 9.39.2
+    eslint:
+      specifier: ^9.39.2
+      version: 9.39.2
+    eslint-plugin-react:
+      specifier: ^7.37.5
+      version: 7.37.5
+    globals:
+      specifier: ^17.3.0
+      version: 17.3.0
+    jiti:
+      specifier: ^2.6.1
+      version: 2.6.1
+    typescript-eslint:
+      specifier: ^8.54.0
+      version: 8.54.0
+
 importers:
 
   .:
     devDependencies:
       '@eslint/js':
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2(jiti@2.6.1)
       eslint-plugin-react:
-        specifier: ^7.37.5
+        specifier: 'catalog:'
         version: 7.37.5(eslint@9.39.2(jiti@2.6.1))
       globals:
-        specifier: ^17.3.0
+        specifier: 'catalog:'
         version: 17.3.0
       jiti:
-        specifier: ^2.6.1
+        specifier: 'catalog:'
         version: 2.6.1
       typescript-eslint:
-        specifier: ^8.54.0
+        specifier: 'catalog:'
         version: 8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
 
 packages:
