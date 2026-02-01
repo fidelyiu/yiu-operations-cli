@@ -11,6 +11,7 @@ sidebar_position: 1
 这是一个独立的文档区域，用于社区相关内容。
 
 你可以在这里添加：
+
 - 社区指南
 - 贡献指南
 - 行为准则
@@ -19,6 +20,7 @@ sidebar_position: 1
 ## 目录结构
 
 这个目录和 `docs/` 目录是独立的，拥有自己的：
+
 - 路由前缀：`/community`
 - 侧边栏配置：`sidebarsCommunity.ts`
 - 导航栏入口：Community
