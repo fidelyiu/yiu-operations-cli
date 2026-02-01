@@ -1,13 +1,14 @@
 # Cli
 
 - [cobra](https://cobra.dev/)
+- [viper](https://github.com/spf13/viper)
 
 ## 运行
 
 ```sh
 go run ./main.go
 go run ./main.go ui
-go build -o yiu-operations-cli
+go build -o yiu-operations
 ```
 
 ## vscode

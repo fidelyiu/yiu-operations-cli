@@ -1,6 +1,6 @@
 package main
 
-import "yiu-operations-cli/cmd"
+import "yiu-operations/cmd"
 
 func main() {
 	cmd.Execute()
