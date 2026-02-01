@@ -10,7 +10,7 @@
       "request": "launch",
       "mode": "debug",
       "program": "${workspaceFolder}/packages/cli/main.go"
-      // "args": ["--logLevel", "debug", "--logAddSource"]
+      // "args": ["--log-level", "debug", "--log-add-source"]
     },
     {
       "name": "cli debug ui",
@@ -18,7 +18,7 @@
       "request": "launch",
       "mode": "debug",
       "program": "${workspaceFolder}/packages/cli/main.go",
-      "args": ["ui", "--logLevel", "debug", "--logAddSource"]
+      "args": ["ui", "--log-level", "debug", "--log-add-source"]
     }
   ]
 }

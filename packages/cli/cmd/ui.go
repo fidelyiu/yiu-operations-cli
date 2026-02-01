@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"log/slog"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -16,20 +17,11 @@ var uiCmd = &cobra.Command{
 `,
 	Run: func(cmd *cobra.Command, args []string) {
 		port := viper.GetInt("ui.port")
-		fmt.Printf("在端口 %d 上启动服务器\\n", port)
-		fmt.Println("ui 已调用")
+		slog.Info(fmt.Sprintf("在端口 %d 上启动服务器", port))
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(uiCmd)
-	uiCmd.Flags().Int("port", 8080, "运行服务器的端口")
-
-	// 在这里定义你的标志和配置设置。
-
-	// Cobra 支持持久化标志，它将对此命令及其所有子命令生效，例如：
-	// uiCmd.PersistentFlags().String("foo", "", "foo 的帮助信息")
-
-	// Cobra 支持本地标志，它仅在直接调用此命令时运行，例如：
-	// uiCmd.Flags().BoolP("toggle", "t", false, "toggle 的帮助信息")
+	uiCmd.Flags().Int("ui.port", 8282, "运行服务器的端口")
 }

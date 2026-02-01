@@ -23,11 +23,12 @@ const (
 )
 
 var (
-	cfgFile   string
-	logLevel  string
-	logFormat string
-	logFile   string
-	logColor  bool
+	cfgFile      string
+	logLevel     string
+	logFormat    string
+	logFile      string
+	logColor     bool
+	logAddSource bool
 )
 
 var rootCmd = &cobra.Command{
@@ -94,6 +95,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&logFormat, "log-format", "text", "日志格式 (text|json)")
 	rootCmd.PersistentFlags().StringVar(&logFile, "log-file", "", "日志文件路径 (默认输出到标准输出)")
 	rootCmd.PersistentFlags().BoolVar(&logColor, "log-color", true, "启用彩色日志输出 (仅对 text 格式有效)")
+	rootCmd.PersistentFlags().BoolVar(&logAddSource, "log-add-source", false, "在日志中添加源代码位置信息")
 }
 
 func initializeConfig(cmd *cobra.Command) error {
@@ -172,7 +174,8 @@ func initLogger() error {
 
 	// 创建处理器选项
 	opts := &slog.HandlerOptions{
-		Level: level,
+		Level:     level,
+		AddSource: viper.GetBool("log-add-source"),
 	}
 
 	// 根据格式创建处理器
@@ -188,6 +191,7 @@ func initLogger() error {
 			handler = tint.NewHandler(writer, &tint.Options{
 				Level:      level,
 				TimeFormat: time.DateTime,
+				AddSource:  viper.GetBool("log-add-source"),
 			})
 		} else {
 			handler = slog.NewTextHandler(writer, opts)
