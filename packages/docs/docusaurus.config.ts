@@ -68,6 +68,20 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "community",
+        path: "community",
+        routeBasePath: "community",
+        sidebarPath: "./sidebarsCommunity.ts",
+        editUrl:
+          "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
@@ -92,6 +106,13 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           position: "left",
           label: "Tutorial",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "communitySidebar",
+          position: "left",
+          label: "Community",
+          docsPluginId: "community",
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
