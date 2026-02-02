@@ -15,9 +15,9 @@ export const themeConfig: Config["themeConfig"] = {
     },
   },
   navbar: {
-    title: "My Site",
+    title: "Yiu Operations Docs",
     logo: {
-      alt: "My Site Logo",
+      alt: "Yiu Operations Docs Logo",
       src: "img/logo.svg",
     },
     items: [
@@ -35,57 +35,57 @@ export const themeConfig: Config["themeConfig"] = {
         docsPluginId: "community",
       },
       { to: "/blog", label: "Blog", position: "left" },
-      {
-        href: "https://github.com/facebook/docusaurus",
-        label: "GitHub",
-        position: "right",
-      },
+      // {
+      //   href: "https://github.com/fidelyiu/yiu-operations-cli",
+      //   label: "GitHub",
+      //   position: "right",
+      // },
     ],
   },
   footer: {
     style: "dark",
-    links: [
-      {
-        title: "Docs",
-        items: [
-          {
-            label: "Tutorial",
-            to: "/docs/intro",
-          },
-        ],
-      },
-      {
-        title: "Community",
-        items: [
-          {
-            label: "Stack Overflow",
-            href: "https://stackoverflow.com/questions/tagged/docusaurus",
-          },
-          {
-            label: "Discord",
-            href: "https://discordapp.com/invite/docusaurus",
-          },
-          {
-            label: "X",
-            href: "https://x.com/docusaurus",
-          },
-        ],
-      },
-      {
-        title: "More",
-        items: [
-          {
-            label: "Blog",
-            to: "/blog",
-          },
-          {
-            label: "GitHub",
-            href: "https://github.com/facebook/docusaurus",
-          },
-        ],
-      },
-    ],
-    copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+    // links: [
+    //   {
+    //     title: "Docs",
+    //     items: [
+    //       {
+    //         label: "Tutorial",
+    //         to: "/docs/intro",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     title: "Community",
+    //     items: [
+    //       {
+    //         label: "Stack Overflow",
+    //         href: "https://stackoverflow.com/questions/tagged/docusaurus",
+    //       },
+    //       {
+    //         label: "Discord",
+    //         href: "https://discordapp.com/invite/docusaurus",
+    //       },
+    //       {
+    //         label: "X",
+    //         href: "https://x.com/docusaurus",
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     title: "More",
+    //     items: [
+    //       {
+    //         label: "Blog",
+    //         to: "/blog",
+    //       },
+    //       {
+    //         label: "GitHub",
+    //         href: "https://github.com/facebook/docusaurus",
+    //       },
+    //     ],
+    //   },
+    // ],
+    copyright: `Copyright © ${new Date().getFullYear()} Yiu Operations Docs, Inc. Built with Fidel Yiu.`,
   },
   prism: {
     theme: prismThemes.github,
