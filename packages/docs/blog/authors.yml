@@ -1,4 +1,4 @@
-yangshun:
+FidelYiu:
   name: Fidel Yiu
   title: Yiu Operations CLI 作者
   url: https://github.com/fidelyiu
@@ -7,10 +7,9 @@ yangshun:
   socials:
     github: fidelyiu
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
+KittyYang:
+  name: Kitty Yang
+  title: 前端开发者
   image_url: /img/avatar/avatar-1.jpg
   page: true
   # page:
