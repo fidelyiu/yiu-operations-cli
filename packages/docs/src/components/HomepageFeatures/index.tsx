@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
 import Heading from "@theme/Heading";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import MountainSvg from "@site/static/img/undraw_docusaurus_mountain.svg";
 import TreeSvg from "@site/static/img/undraw_docusaurus_tree.svg";
 import ReactSvg from "@site/static/img/undraw_docusaurus_react.svg";

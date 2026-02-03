@@ -4,34 +4,35 @@ import { presetsConfig } from "./config/presets";
 import { pluginsConfig } from "./config/plugins";
 import { themeConfig } from "./config/themeConfig";
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+// 这在 Node.js 中运行 - 不要在这里使用客户端代码（浏览器 API、JSX...）
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "Yiu Operations CLI",
+  tagline:
+    "Yiu Operations CLI 是一个运维命令行工具，旨在简化和自动化各种操作任务。",
   favicon: "img/favicon.ico",
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  // Future flags，参见 https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true, // 提高与即将发布的 Docusaurus v4 的兼容性
   },
 
-  // Set the production url of your site here
+  // 在此设置站点的生产环境 URL
   url: "http://localhost:8282",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // 设置站点提供服务的 /<baseUrl>/ 路径名
+  // 对于 GitHub pages 部署，通常是 '/<projectName>/'
   baseUrl: "/",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "fidel-yiu", // Usually your GitHub org/user name.
-  projectName: "yiu-operations-cli", // Usually your repo name.
+  // GitHub pages 部署配置。
+  // 如果你不使用 GitHub pages，则不需要这些。
+  organizationName: "fidel-yiu", // 通常是你的 GitHub 组织/用户名。
+  projectName: "yiu-operations-cli", // 通常是你的仓库名。
 
   onBrokenLinks: "throw",
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // 即使你不使用国际化，也可以使用此字段设置
+  // 有用的元数据，如 html lang。例如，如果你的站点是中文的，
+  // 你可能想将 "en" 替换为 "zh-Hans"。
   i18n: i18nConfig,
   presets: presetsConfig,
   plugins: pluginsConfig,

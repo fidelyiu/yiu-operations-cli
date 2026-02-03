@@ -4,8 +4,11 @@ import { configPath, srcPath } from "./utils.js";
 
 export const presetsConfig: Config["presets"] = [
   [
-    "classic",
+    "@docusaurus/preset-classic",
     {
+      theme: {
+        customCss: [srcPath("/css/custom.scss")],
+      },
       docs: {
         sidebarPath: configPath("/sidebars/sidebars.ts"),
       },
@@ -23,9 +26,6 @@ export const presetsConfig: Config["presets"] = [
         onInlineTags: "warn",
         onInlineAuthors: "warn",
         onUntruncatedBlogPosts: "warn",
-      },
-      theme: {
-        customCss: srcPath("/css/custom.css"),
       },
     } satisfies Preset.Options,
   ],

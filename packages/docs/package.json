@@ -24,10 +24,12 @@
     "@easyops-cn/docusaurus-search-local": "catalog:",
     "@mdx-js/react": "catalog:",
     "clsx": "catalog:",
+    "docusaurus-plugin-sass": "^0.2.6",
     "prism-react-renderer": "catalog:",
     "raw-loader": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "catalog:",
