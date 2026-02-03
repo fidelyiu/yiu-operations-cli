@@ -1,22 +1,22 @@
 {
   "version.label": {
     "message": "最新版",
-    "description": "当前版本的标签"
+    "description": "The label for version current"
   },
   "sidebar.sidebarsExamples.category.docusaurus": {
     "message": "docusaurus",
-    "description": "侧边栏 'sidebarsExamples' 中分类 'docusaurus' 的标签"
+    "description": "The label for category 'docusaurus' in sidebar 'sidebarsExamples'"
   },
   "sidebar.sidebarsExamples.category.教程 - 基础": {
     "message": "教程 - 基础",
-    "description": "侧边栏 'sidebarsExamples' 中分类 '教程 - 基础' 的标签"
+    "description": "The label for category '教程 - 基础' in sidebar 'sidebarsExamples'"
   },
   "sidebar.sidebarsExamples.category.教程 - 基础.link.generated-index.description": {
     "message": "5 分钟学习最重要的 Docusaurus 概念。",
-    "description": "侧边栏 'sidebarsExamples' 中分类 '教程 - 基础' 的生成索引页描述"
+    "description": "The generated-index page description for category '教程 - 基础' in sidebar 'sidebarsExamples'"
   },
   "sidebar.sidebarsExamples.category.教程 - 进阶": {
     "message": "教程 - 进阶",
-    "description": "侧边栏 'sidebarsExamples' 中分类 '教程 - 进阶' 的标签"
+    "description": "The label for category '教程 - 进阶' in sidebar 'sidebarsExamples'"
   }
 }
