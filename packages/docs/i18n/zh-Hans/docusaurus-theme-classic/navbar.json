@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "Yiu Operations",
+    "description": "导航栏中的标题"
+  },
+  "logo.alt": {
+    "message": "Yiu Operations 标志",
+    "description": "导航栏标志的替代文本"
+  },
+  "item.label.文档": {
+    "message": "文档",
+    "description": "导航栏项，标签为 文档"
+  },
+  "item.label.案例": {
+    "message": "案例",
+    "description": "导航栏项，标签为 案例"
+  },
+  "item.label.博客": {
+    "message": "博客",
+    "description": "导航栏项，标签为 博客"
+  }
+}
