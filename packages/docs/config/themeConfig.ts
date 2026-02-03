@@ -15,26 +15,26 @@ export const themeConfig: Config["themeConfig"] = {
     },
   },
   navbar: {
-    title: "Yiu Operations Docs",
+    title: "Yiu Operations",
     logo: {
-      alt: "Yiu Operations Docs Logo",
+      alt: "Yiu Operations Logo",
       src: "img/logo.svg",
     },
     items: [
       {
         type: "docSidebar",
-        sidebarId: "tutorialSidebar",
+        sidebarId: "sidebarsDocs",
         position: "left",
-        label: "Tutorial",
+        label: "文档",
       },
       {
         type: "docSidebar",
-        sidebarId: "communitySidebar",
+        sidebarId: "sidebarsExamples",
         position: "left",
-        label: "Community",
-        docsPluginId: "community",
+        label: "案例",
+        docsPluginId: "examples",
       },
-      { to: "/blog", label: "Blog", position: "left" },
+      { to: "/blog", label: "博客", position: "left" },
       // {
       //   href: "https://github.com/fidelyiu/yiu-operations-cli",
       //   label: "GitHub",

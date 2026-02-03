@@ -10,7 +10,7 @@ export const presetsConfig: Config["presets"] = [
         customCss: [srcPath("/css/custom.scss")],
       },
       docs: {
-        sidebarPath: configPath("/sidebars/sidebars.ts"),
+        sidebarPath: configPath("/sidebars/sidebarsDocs.ts"),
       },
       blog: {
         showReadingTime: true,

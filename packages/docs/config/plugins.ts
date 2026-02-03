@@ -6,10 +6,10 @@ export const pluginsConfig: Config["plugins"] = [
   [
     "@docusaurus/plugin-content-docs",
     {
-      id: "community",
-      path: "community",
-      routeBasePath: "community",
-      sidebarPath: configPath("/sidebars/sidebarsCommunity.ts"),
+      id: "examples",
+      path: "examples",
+      routeBasePath: "examples",
+      sidebarPath: configPath("/sidebars/sidebarsExamples.ts"),
     },
   ],
 ];
