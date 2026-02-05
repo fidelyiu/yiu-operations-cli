@@ -3,6 +3,14 @@ docusaurus:
   permalink: /docusaurus
   description: Docusaurus 静态博客网站生成框架
 website:
-  label: 网站
+  label: WebSite
   permalink: /website
   description: 收藏的优秀网站
+go:
+  label: Go
+  permalink: /go
+  description: Go 语言相关资源
+yiuOps:
+  label: YiuOps
+  permalink: /yiuops
+  description: YiuOps 相关资源

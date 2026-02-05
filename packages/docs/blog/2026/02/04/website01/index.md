@@ -2,7 +2,7 @@
 slug: website01
 title: 收藏的网址
 authors: [FidelYiu]
-tag: [website]
+tags: [website]
 ---
 
 # 网站收藏

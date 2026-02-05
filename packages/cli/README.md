@@ -8,7 +8,7 @@
 ```sh
 go run ./main.go
 go run ./main.go ui
-go build -o yiu-operations
+go build -o yiu-ops
 ```
 
 ## vscode

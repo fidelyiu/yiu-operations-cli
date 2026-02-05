@@ -1,4 +1,4 @@
-module yiu-operations
+module yiu-ops
 
 go 1.25.6
 

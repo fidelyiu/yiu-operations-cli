@@ -2,7 +2,7 @@
 slug: docusaurus
 title: Docusaurus 使用
 authors: [FidelYiu]
-tag: [docusaurus]
+tags: [docusaurus]
 ---
 
 # Docusaurus 使用
