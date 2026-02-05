@@ -18,7 +18,7 @@ export const themeConfig: Config["themeConfig"] = {
     title: "Yiu Operations",
     logo: {
       alt: "Yiu Operations Logo",
-      src: "img/logo.svg",
+      src: "img/Yiu/icononly_transparent_nobuffer.png",
     },
     items: [
       {

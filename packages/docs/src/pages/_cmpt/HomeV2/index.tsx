@@ -14,6 +14,13 @@ export default function Home(): ReactNode {
       description="Yiu Operations CLI 是一个运维命令行工具，旨在简化和自动化各种操作任务。"
     >
       <div className={styles.wrapper}>
+        <div className={styles.logoWrapper}>
+          <img
+            className={styles.logo}
+            src="/img/Yiu/icononly_transparent_nobuffer.png"
+            alt={`${siteConfig.title} Logo`}
+          />
+        </div>
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>

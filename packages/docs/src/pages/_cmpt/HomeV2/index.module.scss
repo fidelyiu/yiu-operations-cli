@@ -6,6 +6,17 @@
   height: 0;
   flex: auto;
 
+  .logoWrapper {
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    .logo {
+      max-height: 160px;
+    }
+  }
+
   &::after {
     content: "";
     display: block;

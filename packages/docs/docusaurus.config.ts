@@ -10,7 +10,7 @@ const config: Config = {
   title: "Yiu Operations CLI",
   tagline:
     "Yiu Operations CLI 是一个运维命令行工具，旨在简化和自动化各种操作任务。",
-  favicon: "img/favicon.ico",
+  favicon: "img/Yiu/favicon.ico",
 
   // Future flags，参见 https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
