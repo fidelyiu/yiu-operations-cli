@@ -2,3 +2,7 @@ docusaurus:
   label: Docusaurus
   permalink: /docusaurus
   description: Docusaurus 静态博客网站生成框架
+website:
+  label: 网站
+  permalink: /website
+  description: 收藏的优秀网站
