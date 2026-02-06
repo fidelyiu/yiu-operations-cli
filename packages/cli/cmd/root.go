@@ -12,14 +12,16 @@ import (
 	"syscall"
 	"time"
 
+	"yiu-ops/internal/app"
+
 	"github.com/lmittmann/tint"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
 const (
-	EnvPrefix  = "YIU_OPERATIONS"
-	ConfigName = ".yiu-operations"
+	EnvPrefix  = "YIU_OPS"
+	ConfigName = ".yiu-ops"
 )
 
 var (
@@ -31,10 +33,12 @@ var (
 	logAddSource bool
 )
 
+var appCtx = app.New()
+
 var rootCmd = &cobra.Command{
-	Use:   "yiu-operations",
-	Short: "yiu-operations 系统运维工具",
-	Long: `yiu-operations 是一个用于系统运维的强大工具集。
+	Use:   "yiu-ops",
+	Short: "yiu-ops 系统运维工具",
+	Long: `yiu-ops 是一个用于系统运维的强大工具集。
 	
 你可以使用它来简化和自动化各种运维任务，提高效率和可靠性。
 `,
@@ -200,6 +204,9 @@ func initLogger() error {
 
 	// 设置全局默认日志记录器
 	slog.SetDefault(slog.New(handler))
+	if appCtx != nil {
+		appCtx.Logger = slog.Default()
+	}
 
 	return nil
 }

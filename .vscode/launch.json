@@ -19,6 +19,14 @@
       "mode": "debug",
       "program": "${workspaceFolder}/packages/cli/main.go",
       "args": ["ui", "--log-level", "debug", "--log-add-source"]
+    },
+    {
+      "name": "cli debug docs",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/packages/cli/main.go",
+      "args": ["docs", "--log-level", "debug", "--log-add-source"]
     }
   ]
 }
