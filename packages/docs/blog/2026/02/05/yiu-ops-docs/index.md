@@ -19,3 +19,9 @@ yiu-ops docs
 # 我们就可以在浏览器中访问 yiu ops cli 的文档
 # http://localhost:8281
 ```
+
+## 添加子命令
+
+```bash
+cobra-cli add docs
+```

@@ -21,3 +21,8 @@ tags: [website]
 ## UI 框架
 
 - [shadcn](https://ui.shadcn.com/)
+
+## Go 依赖
+
+- [cobra](https://cobra.dev/) cli的开发框架
+- [viper](https://github.com/spf13/viper) 配置文件的框架

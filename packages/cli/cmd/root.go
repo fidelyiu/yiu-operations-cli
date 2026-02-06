@@ -37,7 +37,7 @@ var rootCmd = &cobra.Command{
 	Long: `yiu-operations 是一个用于系统运维的强大工具集。
 	
 你可以使用它来简化和自动化各种运维任务，提高效率和可靠性。
-	`,
+`,
 	// 如果你的基础应用程序有与之关联的操作，
 	// 请取消注释以下行：
 	// Run: func(cmd *cobra.Command, args []string) { },
