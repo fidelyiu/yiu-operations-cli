@@ -82,7 +82,7 @@ jobs:
           mkdir -p dist
           VERSION=${GITHUB_REF_NAME#cli@}
           COMMIT=${GITHUB_SHA}
-          BUILD_DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          BUILD_DATE=$(date -u "+%Y-%m-%d %H:%M:%S")
           GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} \
             go build -trimpath \
             -ldflags "-s -w \

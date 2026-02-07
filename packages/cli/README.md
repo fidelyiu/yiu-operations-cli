@@ -38,6 +38,12 @@ git push
 pnpm run pkg:tag
 # 推送tag
 git push origin --tags
+
+# 下载二进制文件之后
+chmod +x ./yiu-ops-darwin-arm64
+# macOS Gatekeeper 临时本地运行可以去掉隔离属性
+xattr -d com.apple.quarantine ./yiu-ops-darwin-arm64
+./yiu-ops-darwin-arm64
 ```
 
 > 删除tag的命令 `git push origin --delete cli@1.0.0-beta.1`
