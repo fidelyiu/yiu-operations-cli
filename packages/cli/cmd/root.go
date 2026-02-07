@@ -95,11 +95,12 @@ func Execute() {
 
 func init() {
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", fmt.Sprintf("配置文件(默认是 $HOME/%s.yaml)", ConfigName))
-	rootCmd.PersistentFlags().StringVar(&logLevel, "log-level", "info", "日志级别 (debug|info|warn|error)")
+	rootCmd.PersistentFlags().StringVar(&logLevel, "log-level", "warn", "日志级别 (debug|info|warn|error)")
 	rootCmd.PersistentFlags().StringVar(&logFormat, "log-format", "text", "日志格式 (text|json)")
 	rootCmd.PersistentFlags().StringVar(&logFile, "log-file", "", "日志文件路径 (默认输出到标准输出)")
 	rootCmd.PersistentFlags().BoolVar(&logColor, "log-color", true, "启用彩色日志输出 (仅对 text 格式有效)")
 	rootCmd.PersistentFlags().BoolVar(&logAddSource, "log-add-source", false, "在日志中添加源代码位置信息")
+	rootCmd.SetVersionTemplate("{{.Version}}\n")
 }
 
 func initializeConfig(cmd *cobra.Command) error {
