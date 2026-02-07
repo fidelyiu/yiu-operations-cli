@@ -21,3 +21,18 @@ go install github.com/cweill/gotests/gotests@latest
 go install github.com/josharian/impl@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 ```
+
+## 发布
+
+```sh
+# 添加修改日志 只选择cli
+pnpm run pkg:add
+# 将有修改记录的包提升版本 只选择cli
+pnpm run pkg:version
+# 生成对应的git tag
+pnpm run pkg:tag
+# 推送tag
+git push origin --tags
+```
+
+> 删除tag的命令 `git push origin --delete cli@1.0.0-beta.1`
