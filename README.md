@@ -1,5 +1,7 @@
 # Yiu Operations Cli
 
+![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)
+
 ## 整理依赖
 
 ```sh
