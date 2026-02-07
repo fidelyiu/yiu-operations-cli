@@ -32,6 +32,7 @@ pnpm run pkg:version
 # push 修改记录
 git add .
 pnpm run vcs:commit
+# yiu cli 添加修改日志
 git push
 # 生成对应的git tag
 pnpm run pkg:tag
