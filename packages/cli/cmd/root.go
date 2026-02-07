@@ -21,7 +21,7 @@ import (
 
 const (
 	EnvPrefix  = "YIU_OPS"
-	ConfigName = ".yiu-ops"
+	ConfigName = ".yiu-ops/config"
 )
 
 var (
