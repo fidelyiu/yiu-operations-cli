@@ -29,6 +29,10 @@ go install honnef.co/go/tools/cmd/staticcheck@latest
 pnpm run pkg:add
 # 将有修改记录的包提升版本 只选择cli
 pnpm run pkg:version
+# push 修改记录
+git add .
+pnpm run vcs:commit
+git push
 # 生成对应的git tag
 pnpm run pkg:tag
 # 推送tag
