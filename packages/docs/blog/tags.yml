@@ -14,3 +14,7 @@ yiuOps:
   label: YiuOps
   permalink: /yiuops
   description: YiuOps 相关资源
+gitHubActions:
+  label: GitHub Actions
+  permalink: /github-actions
+  description: GitHub Actions 相关资源
