@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 packages/cli/yiu-ops
 packages/cli/internal/docs/build
+packages/cli-go/yiu-ops
+packages/cli-go/internal/docs/build

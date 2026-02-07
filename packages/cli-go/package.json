@@ -1,0 +1,8 @@
+{
+  "name": "cli-go",
+  "version": "1.0.4",
+  "private": false,
+  "author": "Fidel Yiu <fidel-yiu@foxmail.com>",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.2"
+}
