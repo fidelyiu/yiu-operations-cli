@@ -1,5 +1,4 @@
 ---
-slug: yiu-ops-docs
 title: Github Action push 代码
 authors: [FidelYiu]
 tags: [gitHubActions]
