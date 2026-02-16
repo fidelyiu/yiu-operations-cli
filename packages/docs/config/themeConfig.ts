@@ -90,7 +90,8 @@ export const themeConfig: Config["themeConfig"] = {
   prism: {
     // theme: prismThemes.github,
     // darkTheme: prismThemes.vsDark,
-    additionalLanguages: ["bash", "go", "yaml", "json", "ini"],
+    // https://prismjs.com/#supported-languages
+    additionalLanguages: ["bash", "go", "yaml", "json", "ini", "toml"],
   },
   mermaid: {
     theme: { light: "neutral", dark: "forest" },

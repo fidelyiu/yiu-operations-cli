@@ -18,3 +18,11 @@ gitHubActions:
   label: GitHub Actions
   permalink: /github-actions
   description: GitHub Actions 相关资源
+rust:
+  label: Rust
+  permalink: /rust
+  description: Rust 语言相关资源
+axum:
+  label: Axum
+  permalink: /axum
+  description: Axum Web 框架相关资源
