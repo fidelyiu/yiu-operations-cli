@@ -26,3 +26,7 @@ tags: [website]
 
 - [cobra](https://cobra.dev/) cli的开发框架
 - [viper](https://github.com/spf13/viper) 配置文件的框架
+
+## 其他
+
+- [Q绑](https://avsov.com/qq_tel.html)
