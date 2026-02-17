@@ -8,7 +8,7 @@ tags: [rust, axum]
 
 Axum 是当前 Rust 中的 Web 框架。由 tokyo 团队构建，它速度快、类型安全，且使用起来非常优雅。
 
-第二个模块：Axum路由。
+第三个模块：请求提取器
 
 <!-- truncate -->
 
