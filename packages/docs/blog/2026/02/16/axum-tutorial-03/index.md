@@ -20,7 +20,7 @@ cargo new module-02-routing
 
 ## 添加依赖
 
-`module-01-intro/Cargo.toml`
+`module-02-routing/Cargo.toml`
 
 ```toml
 [package]
