@@ -13,6 +13,8 @@ export const presetsConfig: Config["presets"] = [
         sidebarPath: configPath("/sidebars/sidebarsDocs.ts"),
       },
       blog: {
+        blogSidebarTitle: "所有文章",
+        blogSidebarCount: "ALL",
         showReadingTime: true,
         feedOptions: {
           type: ["rss", "atom"],
