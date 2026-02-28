@@ -26,3 +26,7 @@ axum:
   label: Axum
   permalink: /axum
   description: Axum Web 框架相关资源
+ts:
+  label: TypeScript
+  permalink: /ts
+  description: TypeScript 语言相关资源
