@@ -10,6 +10,15 @@ tags: [ts]
 
 下载完之后的会将记录写入到 `shadcn-installed-urls.log` 文件中。
 
+也可以配置`.npmrc`，让命令走代理。
+
+```txt
+proxy=http://127.0.0.1:29758
+https-proxy=http://127.0.0.1:29758
+```
+
+---
+
 ```bash
 #!/usr/bin/env bash
 set -uo pipefail
