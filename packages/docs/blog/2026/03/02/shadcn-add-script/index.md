@@ -19,6 +19,16 @@ https-proxy=http://127.0.0.1:29758
 
 ---
 
+`retry-shadcn.sh`
+
+给脚本权限
+
+```bash
+chmod +x ./retry-shadcn.sh
+```
+
+---
+
 ```bash
 #!/usr/bin/env bash
 set -uo pipefail
