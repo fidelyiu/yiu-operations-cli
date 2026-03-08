@@ -6,6 +6,7 @@ import { footer } from "./footer";
 import { docFooter } from "./docFooter";
 import { search } from "./search";
 
+// 2430080847&13124698770
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
