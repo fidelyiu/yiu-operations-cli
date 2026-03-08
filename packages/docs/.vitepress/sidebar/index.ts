@@ -1,11 +1,8 @@
 import { DefaultTheme } from "vitepress";
+import { rustGuideSidebar } from "./rust/guide";
+import { rustAxumSidebar } from "./rust/axum";
 
-export const sidebar: DefaultTheme.Sidebar = [
-  {
-    text: "Examples",
-    items: [
-      { text: "Markdown Examples", link: "/markdown-examples" },
-      { text: "Runtime API Examples", link: "/api-examples" },
-    ],
-  },
-];
+export const sidebar: DefaultTheme.Sidebar = {
+  "/rust/guide": rustGuideSidebar,
+  "/rust/axum": rustAxumSidebar,
+};
