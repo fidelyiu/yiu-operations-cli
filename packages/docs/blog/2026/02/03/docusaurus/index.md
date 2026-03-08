@@ -5,8 +5,6 @@ authors: [FidelYiu]
 tags: [docusaurus]
 ---
 
-# Docusaurus 使用
-
 本 web 站点使用 [docusaurus](https://docusaurus.io/) 搭建
 
 <!-- truncate -->
