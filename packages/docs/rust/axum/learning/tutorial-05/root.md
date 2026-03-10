@@ -269,7 +269,7 @@ async fn main() {
 
 ```rust
 /// 当你需要多个相互独立的状态类型时，将它们组合起来
-#[derive(Clone)]
+#[derive(Clone)] // 为该结构实现 Clone
 #[allow(dead_code)] // 仅用于演示展示字段
 struct CombinedState {
     config: Arc<AppConfig>,
@@ -310,10 +310,154 @@ async fn increment_request_count(State(state): State<CombinedState>) -> &'static
 
 ### 定义路由
 
-将组合后的状态传递给 with_data 或 withdate（保持原文拼写）。
+将组合后的状态传递给 with_state。
+
+```rust
+// 为复杂应用准备的组合状态
+let combined_state = CombinedState {
+    // 每个 Arc 在克隆时仅通过增加计数器来实现廉价克隆。
+    config: config.clone(),
+    todos: todo_store.clone(),
+    metrics: Arc::new(RwLock::new(Metrics::default())),
+};
+
+// 构建主应用
+let app = Router::new()
+    .route("/metrics", get(get_metrics))
+    .route("/track", get(increment_request_count))
+    .with_state(combined_state);
+```
+
+## 数据库连接池
 
 在真实应用中，这通常会是 sql xpg poolool 或类似的东西。
 
-```rust
+连接池本质上是可共享的。那就是它们存在的目的。
 
+把连接池作为状态传递，处理器可以根据需要进行查询。
+
+我们接下来会在第8模块中看到真实的数据库。
+
+目前，理解为连接池只是另一种状态类型即可。
+
+### 定义状态
+
+```rust
+/// 模拟数据库连接池
+/// 在真实应用中，这里会是 sqlx::PgPool 或类似类型
+#[derive(Clone)]
+#[allow(dead_code)] // 仅用于演示展示字段
+struct DbPool {
+    connection_string: String,
+    max_connections: u32,
+}
+
+impl DbPool {
+    fn new(connection_string: &str) -> Self {
+        Self {
+            connection_string: connection_string.to_string(),
+            max_connections: 10,
+        }
+    }
+
+    // 模拟查询
+    async fn query(&self, _sql: &str) -> Result<Vec<String>, String> {
+        // 在真实应用中：sqlx::query!(...).fetch_all(&self.pool).await
+        Ok(vec!["result1".to_string(), "result2".to_string()])
+    }
+}
 ```
+
+### 定义处理器
+
+```rust
+async fn db_query(State(pool): State<DbPool>) -> Json<Vec<String>> {
+    match pool.query("SELECT * FROM users").await {
+        Ok(results) => Json(results),
+        Err(_) => Json(vec![]),
+    }
+}
+```
+
+### 注册路由
+
+```rust
+// 模拟数据库连接池
+let db_pool = DbPool::new("postgres://localhost/myapp");
+// 构建主应用
+let app = Router::new()
+    // 数据库端点
+    .route("/db/users", get(db_query))
+    .with_state(db_pool);
+```
+
+## 扩展模式
+
+扩展是每个请求不同的请求雕塑状态，由中间件设置
+
+常用的认证中间件会验证令牌并将当前用户插入到 extensions 中。
+
+处理器在提取它时知道用户已经通过了认证。
+
+对应用范围的数据使用 state。
+
+对请求特定的数据使用 extension。
+
+### 定义扩展
+
+```rust
+/// 有时你希望动态添加状态（例如从中间件注入）
+use axum::Extension;
+
+#[derive(Clone)]
+struct CurrentUser {
+    id: String,
+    name: String,
+}
+```
+
+### 定义处理器
+
+```rust
+async fn get_current_user(Extension(user): Extension<CurrentUser>) -> Json<serde_json::Value> {
+    Json(serde_json::json!({
+        "id": user.id,
+        "name": user.name
+    }))
+}
+```
+
+### 注册路由
+
+```rust
+// 当前用户（通常由鉴权中间件设置）
+let current_user = CurrentUser {
+    id: "user-123".to_string(),
+    name: "Demo User".to_string(),
+};
+
+// 构建主应用
+let app = Router::new()
+    // 基于 Extension 的状态
+    .route("/me", get(get_current_user))
+    .layer(Extension(current_user));
+```
+
+## 总结
+
+- 保持状态精简。
+  - 不要把所有东西塞进一个结构体。
+  - 将相关数据分组。
+- 使用 Arc 来共享。
+  - 它既廉价又安全。
+- 在 Web 应用中优先使用 RwLock 而不是互斥锁（mutex）。
+- 在构建路由器之前先初始化状态。
+  - 启动时的错误比请求期间的错误更容易调试。
+- 考虑为不同的状态需求使用独立的路由器。
+  - 最后将它们合并。
+- Arc 用于不可变共享的状态。
+- RwLock 用于可变共享的状态。
+- 组合状态结构以支持多种类型。
+- 扩展用于请求的作用域的状态。
+- 将数据库连接池作为状态。
+- 状态管理是真正应用的支柱。
