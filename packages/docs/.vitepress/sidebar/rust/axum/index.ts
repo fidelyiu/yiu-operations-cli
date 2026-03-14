@@ -46,6 +46,10 @@ export const rustAxumSidebar: DefaultTheme.SidebarItem[] = [
             text: "9. 认证",
             link: "/rust/axum/learning/tutorial-09/root",
           },
+          {
+            text: "10. 高级功能",
+            link: "/rust/axum/learning/tutorial-10/root",
+          },
         ],
       },
     ],
