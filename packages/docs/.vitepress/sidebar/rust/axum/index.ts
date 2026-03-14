@@ -38,6 +38,10 @@ export const rustAxumSidebar: DefaultTheme.SidebarItem[] = [
             text: "7. 错误处理",
             link: "/rust/axum/learning/tutorial-07/root",
           },
+          {
+            text: "8. 数据库",
+            link: "/rust/axum/learning/tutorial-08/root",
+          },
         ],
       },
     ],
