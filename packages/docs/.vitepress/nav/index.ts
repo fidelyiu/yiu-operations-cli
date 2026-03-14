@@ -24,6 +24,7 @@ export const nav: DefaultTheme.NavItem[] = [
     items: [
       { text: "指南", link: "/rust/guide/root" },
       { text: "Axum", link: "/rust/axum/root" },
+      { text: "Workspace Kit", link: "/rust/workspace-kit/root" },
     ],
   },
   {
