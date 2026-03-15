@@ -19,6 +19,10 @@ export const otherSidebar: DefaultTheme.SidebarItem[] = [
           },
         ],
       },
+      {
+        text: "postgresql 触发器",
+        link: "/other/postgresql-trigger/root",
+      },
     ],
   },
 ];

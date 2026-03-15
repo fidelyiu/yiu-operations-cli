@@ -13,6 +13,26 @@ export default defineConfig({
   title: "Yiu Operations CLI",
   description:
     "Yiu Operations CLI 是一个运维命令行工具，旨在简化和自动化各种操作任务。",
+  head: [["link", { rel: "icon", href: "/img/Yiu/favicon.ico" }]],
+  markdown: {
+    config(md) {
+      const defaultFence = md.renderer.rules.fence;
+
+      md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+        const token = tokens[idx];
+
+        if (token.info.trim() === "mermaid") {
+          return `<pre class="mermaid">${md.utils.escapeHtml(token.content)}</pre>`;
+        }
+
+        if (defaultFence) {
+          return defaultFence(tokens, idx, options, env, self);
+        }
+
+        return self.renderToken(tokens, idx, options);
+      };
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/img/Yiu/icononly_transparent_nobuffer.png",
