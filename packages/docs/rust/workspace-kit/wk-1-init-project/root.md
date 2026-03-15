@@ -38,3 +38,20 @@ regex = "1.11.1"
 
 - [argon2](https://docs.rs/argon2/latest/argon2/): 纯 Rust 实现的 Argon2 密码哈希函数。
 - [async-trait](https://docs.rs/async-trait/latest/async_trait/): 这个 crate 提供了一个属性宏，使 traits 中的 async fn 能够与 dyn traits 一起使用。
+- [chrono](https://docs.rs/chrono/latest/chrono/): Rust 的日期和时间
+- [dotenv](https://docs.rs/dotenv/latest/dotenv/): 环境变量配置加载器
+- [jsonwebtoken](https://docs.rs/jsonwebtoken/latest/jsonwebtoken/): JWT实现
+- [serde](https://serde.rs/): 序列化
+- [serde_json](https://docs.rs/serde_json/latest/serde_json/): json 序列化
+- [sqlx](https://docs.rs/sqlx_wasi/latest/sqlx/): 数据库连接
+- [uuid](https://docs.rs/uuid/latest/uuid/): UUID实现
+- [validator](https://docs.rs/validator/latest/validator/): 结构体验证
+- [axum](https://docs.rs/axum/latest/axum/): web框架
+- [axum-extra](https://crates.io/crates/axum-extra): axum 的额外实用程序。
+- [tokio](https://docs.rs/tokio/latest/tokio/): rust异步运行时
+- [tower](https://docs.rs/tower/latest/tower/): Tower 是一个模块化和可重用组件库，用于构建强大的网络客户端和服务器。
+- [time](https://docs.rs/time/latest/time/): time 工具
+- [tower-http](https://crates.io/crates/tower-http): Tower 中间件和用于 HTTP 客户端和服务器的实用程序。
+- [tracing-subscriber](https://docs.rs/tracing-subscriber/latest/tracing_subscriber/): 追踪订阅者
+- [lettre](https://docs.rs/lettre/latest/lettre/): 邮件库
+- [regex](https://docs.rs/regex/latest/regex/): 正则
