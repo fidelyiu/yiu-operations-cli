@@ -22,6 +22,10 @@ export const rustGuideSidebar: DefaultTheme.SidebarItem[] = [
         link: "/rust/guide/smart-pointer/root",
       },
       {
+        text: "dyn使用",
+        link: "/rust/guide/dyn-use/root",
+      },
+      {
         text: "async 和 dyn",
         link: "/rust/guide/async-dyn/root",
       },

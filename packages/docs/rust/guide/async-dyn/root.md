@@ -16,3 +16,9 @@ pub fn make() -> Box<dyn Trait> {
 
 - [async-trait](https://docs.rs/async-trait/latest/async_trait/)
 - [为什么在 traits 中使用异步函数很难](https://smallcultfollowing.com/babysteps/blog/2019/10/26/async-fn-in-traits-are-hard/)
+
+## 使用 async-trait
+
+```sh
+cargo add async-trait
+```
