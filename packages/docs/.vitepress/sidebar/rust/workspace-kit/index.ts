@@ -16,6 +16,10 @@ export const rustWorkspaceKitSidebar: DefaultTheme.SidebarItem[] = [
           },
         ],
       },
+      {
+        text: "2. config 模块",
+        link: "/rust/workspace-kit/wk-2-config-module/root",
+      },
     ],
   },
 ];
