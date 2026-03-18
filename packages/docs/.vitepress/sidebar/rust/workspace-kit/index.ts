@@ -20,6 +20,10 @@ export const rustWorkspaceKitSidebar: DefaultTheme.SidebarItem[] = [
         text: "2. config 模块",
         link: "/rust/workspace-kit/wk-2-config-module/root",
       },
+      {
+        text: "3. error 模块",
+        link: "/rust/workspace-kit/wk-3-error-module/root",
+      },
     ],
   },
 ];
